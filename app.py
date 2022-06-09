@@ -46,7 +46,7 @@ def take_photo_movement(movement_id):
         headers={'X-Auth-Token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImlvdCIsInRpbWVzdGFtcCI6MTY1NDU5MjQ3OX0.R_08zt-1S9vnC2OAh_IO7oHQlhrbNl-pHuAwZqCbKSY"}
     )
     
-    return 'ok'
+    return 'OK'
 
 
 @app.route('/photo', methods=['GET'])
