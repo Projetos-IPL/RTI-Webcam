@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from importlib import import_module
-import os
-from flask import Flask, render_template, Response
+from flask import Flask, Response
 import cv2
 import base64
 import requests
@@ -36,12 +35,12 @@ def take_photo_movement(movement_id):
     """Take a single photo from webcam"""
     
     cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
+    _, frame = cap.read()
     
-    retval, buffer = cv2.imencode('.jpg', frame)
+    _, buffer = cv2.imencode('.jpg', frame)
     jpg_as_text = base64.b64encode(buffer)
 
-    req = requests.post(
+    requests.post(
         'http://rti-api.afonsosantos.me/api/imagensMovimento.php',
         json={'entrance_log_id': movement_id, 'image': jpg_as_text},
         headers={'X-Auth-Token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImlvdCIsInRpbWVzdGFtcCI6MTY1NDU5MjQ3OX0.R_08zt-1S9vnC2OAh_IO7oHQlhrbNl-pHuAwZqCbKSY"}
@@ -54,9 +53,9 @@ def take_photo_movement(movement_id):
 def take_photo():
     """Take a single photo from webcam"""
     cap = cv2.VideoCapture("http://localhost:8080/feed")
-    ret, frame = cap.read()
+    _, frame = cap.read()
     
-    retval, buffer = cv2.imencode('.jpg', frame)
+    _, buffer = cv2.imencode('.jpg', frame)
     jpg_as_text = base64.b64encode(buffer)
         
     return { "image": jpg_as_text }
