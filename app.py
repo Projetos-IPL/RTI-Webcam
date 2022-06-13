@@ -48,13 +48,14 @@ def take_photo_movement(movement_id):
     _, buffer = cv2.imencode(".jpg", frame)
     jpg_as_text = base64.b64encode(buffer)
 
-    res = requests.post(
+    r = requests.post(
         API_URL + "imagensMovimento.php",
         json={"entrance_log_id": movement_id, "image": jpg_as_text},
         headers=HEADERS
     )
 
-    print(res.text)
+    print(len(r.text))
+
     return 'OK'
 
 
