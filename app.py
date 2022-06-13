@@ -54,7 +54,8 @@ def take_photo_movement(movement_id):
         headers=HEADERS
     )
 
-    return str(res.ok)
+    print(res.text)
+    return 'OK'
 
 
 @app.route("/photo", methods=["GET"])
