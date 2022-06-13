@@ -8,7 +8,7 @@ from flask import Flask, Response
 from flask_cors import CORS
 
 # constants
-API_URL = "http://localhost:8080/api/"
+API_URL = "http://10.20.229.81:8080/api/"
 HEADERS = {"X-Auth-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImlvdCIsInRpbWVzdGFtcCI6MTY1NDU5MjQ3OX0.R_08zt-1S9vnC2OAh_IO7oHQlhrbNl-pHuAwZqCbKSY"}
 
 # import camera driver
