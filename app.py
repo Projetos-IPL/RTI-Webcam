@@ -49,7 +49,7 @@ def take_photo_movement(movement_id):
     jpg_as_text = base64.b64encode(buffer)
 
     res = requests.post(
-        API_URL + "imagensMovimentos.php",
+        API_URL + "imagensMovimento.php",
         json={"entrance_log_id": movement_id, "image": jpg_as_text},
         headers=HEADERS
     )
