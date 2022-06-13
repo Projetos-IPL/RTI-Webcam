@@ -23,10 +23,10 @@ CORS(app)
 
 def gen(camera):
     """Video streaming generator function."""
-    yield b"--frame\r\n"
+    yield b'--frame\r\n'
     while True:
         frame = camera.get_frame()
-        yield b"Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n--frame\r\n"
+        yield b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n--frame\r\n'
 
 
 @app.route("/feed")
