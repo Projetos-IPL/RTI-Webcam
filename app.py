@@ -42,7 +42,7 @@ def video_feed():
 def take_photo_movement(movement_id):
     """Take a single photo from webcam and link it to a movement record."""
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("http://localhost:8080/feed")
     _, frame = cap.read()
 
     _, buffer = cv2.imencode(".jpg", frame)
